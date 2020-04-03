@@ -1,7 +1,7 @@
 import asyncio
 from aioconsole import ainput
 
-from bouquet_design.comsumer import Consumer
+from bouquet_design.consumer import Consumer
 from bouquet_design.creator import BouquetCreator
 from bouquet_design.models import Designs
 
