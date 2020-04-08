@@ -5,12 +5,14 @@ from aiofile import AIOFile, LineReader
 class Consumer:
 
     async def handle(self, arg):
+        arg = arg.strip()
         if not arg:
             return
         if arg.endswith('txt'):
             await self._read_from_file(arg)
         else:
-            await self._add_field(arg)
+            for a in arg.replace('\\t', '').split('\\n'):
+                await self._add_field(a)
 
     async def _read_from_file(self, path):
         async with AIOFile(path, "r")as f:
