@@ -53,7 +53,7 @@ class BouquetDesign:
         :param spec: example 'AL10a15b5c30'
         :return: lowers in bouquet, total quantity of flowers, additional free space
         """
-        result = re.findall("(\d+\w)", self.specification[2:])
+        result = re.findall("(\d*\w)", self.specification[2:])
         total_qty = int(result.pop(len(result) - 1))
         flowers = [{'qty': int(i[1]), 'specie': i[2]} for i in map(lambda x: re.split("(\d+)", x), result)]
         additional_qty = total_qty - sum(v['qty'] for v in flowers)
