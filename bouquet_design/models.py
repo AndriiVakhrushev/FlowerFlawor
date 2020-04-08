@@ -85,6 +85,9 @@ class Bouquet:
         """
         Create bouquet by specifications
         """
+        if self.status != self.NEW:
+            return
+
         pool = FlowerWarehouse()[self.design.size]
 
         for flower in self.required_flowers:
